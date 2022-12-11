@@ -1,0 +1,9 @@
+target
+index.node
+**/node_modules
+**/.DS_Store
+npm-debug.log*
+
+test/*.csv
+test/*.xlsx
+test/source-lib.csv
