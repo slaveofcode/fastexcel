@@ -1,8 +1,17 @@
 # FastExcel
 
+> This project using [Neon](https://neon-bindings.com) as a binding to Rust to execute fast and efficient memory usage for generating XLSX document. 
+
+### Installation
+
+    npm i fastexcel
+
 ### Example
 
 ```
+const fs = require('fs');
+const { CsvFileWriter, Converter } = require("fastexcel");
+
 // Part 1: Put Data to CSV/Text
 const writer = new CsvFileWriter("./test/source-lib.csv", [
   "No",
