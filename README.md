@@ -9,30 +9,45 @@
 ### Example
 
 ```
-const fs = require('fs');
+// index.js
+const path = require('path');
 const { CsvFileWriter, Converter } = require("fastexcel");
 
-// Part 1: Put Data to CSV/Text
-const writer = new CsvFileWriter("./test/source-lib.csv", [
-  "No",
-  "Name",
-  "Gender",
-]);
+const main = async () => {
+  const src = path.join(process.cwd(), 'example/source.csv');
+  const dst = path.join(process.cwd(), 'example/generated.xlsx');
 
-const rows = [
-  [1, "John", "Male"],
-  [2, "Doe", "Male"],
-];
+  console.log('src', src);
+  console.log('dst', dst);
 
-for (const row of rows) {
-  await writer.write(row);
-}
+  const cols = [];
+  const totalCols = 200;
+  for (let i = 0; i < totalCols; i++) {
+    cols.push('Col ' + (i+1));
+  }
 
-await writer.close();
+  const writer = new CsvFileWriter(src, cols);
 
-// Part 2: Convert csv to excel
-const res = await Converter.toXLSX(
-  "./test/source-lib.csv",
-  "./test/result-lib.xlsx",
-);
+  const totalRows = 1000000; // 1jt rows
+  for (let i = 0; i < totalRows; i++) {
+    let row = [];
+    
+    for (let i = 0; i < totalCols; i++) {
+      row.push('Col No ' + (i+1));
+    }
+
+    row.push(row);
+    await writer.write(row);
+  }
+
+  await writer.close();
+
+  // Part 2: Convert csv to excel
+  const res = await Converter.toXLSX(
+    src,
+    dst
+  );
+};
+
+main();
 ```
