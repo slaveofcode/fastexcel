@@ -1,4 +1,4 @@
-use std::{fs::File, error::Error, io::{Read, BufReader, BufRead, Write}, fmt::Display};
+use std::{fs::File, io::{BufReader, BufRead, Write}, fmt::Display};
 use neon::{prelude::*};
 use simple_xlsx_writer::{WorkBook, Row as XLSRow, Cell};
 
@@ -9,25 +9,6 @@ impl<'a> Display for Row<'a> {
         let comb_str = self.0.join(",");
         write!(f, "{}", comb_str)
     }
-}
-
-#[allow(dead_code)]
-fn read_file_buffer(filepath: String) -> Result<(), Box<dyn Error>> {
-    const BUFFER_LEN: usize = 512;
-    let mut buffer = [0u8; BUFFER_LEN];
-    let mut file = File::open(filepath)?;
-
-    loop {
-        let read_count = file.read(&mut buffer)?;
-        let buff = &buffer[..read_count];
-        let line = String::from_utf8_lossy(buff);
-        println!("line: {}", line);
-
-        if read_count != BUFFER_LEN {
-            break;
-        }
-    }
-    Ok(())
 }
 
 fn read_file_liner<F>(filepath: String, fn_operation: &mut F) -> Result<(), std::io::Error>
