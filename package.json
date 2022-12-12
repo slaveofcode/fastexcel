@@ -1,13 +1,13 @@
 {
   "name": "fastexcel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fast and efficient large excel file writer",
   "main": "dist/index.js",
   "scripts": {
     "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
     "build-debug": "npm run build --",
     "build-release": "npm run build -- --release",
-    "install": "npm run build-release",
+    "project:install": "npm run build-release",
     "rs:test": "cargo test",
     "js:test": "jest --runInBand"
   },
