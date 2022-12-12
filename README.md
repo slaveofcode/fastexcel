@@ -1,16 +1,16 @@
 # FastExcel
 
-> This project using [Neon](https://neon-bindings.com) as a binding to Rust to execute fast and efficient memory usage for generating XLSX document. 
+> This project using [Rust](https://www.rust-lang.org) and [Neon](https://neon-bindings.com) as a binding to Rust to execute fast and efficient memory usage for generating XLSX document from NodeJs. 
 
-> Check here for [Rust installation instruction](https://www.rust-lang.org/tools/install)
+> This project need Rust to be installed, check here for [Rust installation instruction](https://www.rust-lang.org/tools/install)
 
 ### Installation
 
-    npm i fastexcel
-
     npm i -D cargo-cp-artifact
 
-### Example
+    npm i fastexcel
+
+### Example Usage
 
 ```
 // index.js
