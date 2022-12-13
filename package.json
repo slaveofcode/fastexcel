@@ -1,6 +1,6 @@
 {
   "name": "fastexcel",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Fast and efficient large excel file writer",
   "main": "dist/index.js",
   "repository": {
