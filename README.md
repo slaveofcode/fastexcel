@@ -32,9 +32,6 @@ const main = async () => {
   const src = path.join(process.cwd(), 'example/source.csv');
   const dst = path.join(process.cwd(), 'example/generated.xlsx');
 
-  console.log('src', src);
-  console.log('dst', dst);
-
   const cols = [];
   const totalCols = 200; // 200 columns
   for (let i = 0; i < totalCols; i++) {
@@ -51,7 +48,6 @@ const main = async () => {
       row.push('Col No ' + (i+1));
     }
 
-    row.push(row);
     await writer.write(row);
   }
 
