@@ -19,7 +19,8 @@ fn read_file_liner<F>(filepath: String, fn_operation: &mut F) -> Result<(), std:
 
     for line in reader.lines() {
         let res_line = line.unwrap();
-        let mut row = Row(vec![&res_line]);
+        let cols = res_line.split(",").collect::<Vec<&str>>();
+        let mut row = Row(cols);
         fn_operation(&mut row)?;
     }
 
