@@ -4,9 +4,9 @@
 
 > This project using [Rust](https://www.rust-lang.org) and [Neon](https://neon-bindings.com) as a binding to Rust to execute fast and efficient memory usage for generating XLSX document from NodeJs. 
 
-> This project cannot be executed via NVM based NodeJs, you should deactivate (via `nvm deactivate`) and use a normal version installation of NodeJs.
+> This project cannot be executed via NVM based NodeJs, you should deactivate (via `nvm deactivate`) or use a system version installation of NodeJs (via `nvm use system`).
 
-Writing a large amount of data into Excel file is not a trivial task when you have a limited memory (RAM) allocated. Especially when working at a small node on the server. This library is created to solve that problem, using the efficiency of Rust while generating XLSX from CSV.
+Writing a large amount of data into Excel file is not a trivial task when you have a limited memory (RAM) allocated. Especially when working at a small node on the server. This library is created to solve that problem, using the efficiency of Rust while generating a large datasheet of XLSX from CSV.
 
 ### Installation
 
@@ -40,7 +40,7 @@ const main = async () => {
 
   const writer = new CsvFileWriter(src, cols);
 
-  const totalRows = 1_000_000; // 1 million rows
+  const totalRows = 3_00_000; // 300k rows
   for (let i = 0; i < totalRows; i++) {
     let row = [];
     
