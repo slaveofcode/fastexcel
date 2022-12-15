@@ -59,7 +59,6 @@ where
 
     /// Finish the XLSX file. You need to call this so you can have a valid XLSX file.
     pub fn finish(mut self) -> IoResult<()> {
-        println!("finish called....");
         let options = FileOptions::default()
             .large_file(true);
         
