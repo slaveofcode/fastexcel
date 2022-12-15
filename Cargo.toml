@@ -13,10 +13,12 @@ crate-type = ["cdylib"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-simple-xlsx-writer = "0.1.0"
 zip = "0.6.3"
 
 [dependencies.neon]
 version = "0.10"
 default-features = false
 features = ["napi-6", "promise-api", "channel-api"]
+
+[dev-dependencies]
+calamine = "0.19.1"
